@@ -1,0 +1,66 @@
+body {
+    font-family: sans-serif;
+}
+
+.container{
+    text-align: left;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 500px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.roleButton{
+    color: black;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+#clearButton{
+    color: black;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+#agentButton{
+    background-color: #b8ffc8;
+    color: black;   
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.roleButton:hover {
+    background-color: #e6ebee;
+}
+
+.roleButton:active {
+    transform: scale(0.98);
+}
+
+#duelistButton{
+
+}
+
+#smokesButton{
+
+}
+
+#initiatorButton{
+
+}
+
+#sentinelButton{
+
+}
+
