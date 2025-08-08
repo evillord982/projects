@@ -18,7 +18,7 @@ Depending on the project, I might use:
 - Git for version control
 - Whatever tools I’m trying to learn!
 
-## 🚧 In Progress
+## In Progress
 
 This is a work in progress — things may be messy, and that’s part of the learning.
 
@@ -28,5 +28,6 @@ This is a work in progress — things may be messy, and that’s part of the lea
 - Commit often
 - Comment your code (future me will thank you)
 - Celebrate small wins!
+- get better at version control and git
 
 ---
