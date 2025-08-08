@@ -2,14 +2,13 @@
 
 **Personal coding projects to help me learn and improve**
 
-## 🌟 Goals
+## Goals
 
-- ✅ Get better at coding
-- 🎉 Have fun while building
+- Get better at coding
 
-## 📁 About
+## About
 
-This repo is a collection of small (or not-so-small) projects that I’m using to sharpen my programming skills. It’s all about experimenting, learning by doing, and enjoying the process.
+This repo is a collection of small (projects that I’m using to sharpen my programming skills. It’s all about experimenting, learning by doing, and enjoying the process.
 
 
 ## 🛠 Tech Stack
