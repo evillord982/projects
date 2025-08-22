@@ -1,6 +1,7 @@
-# Sonny's Personal Coding Projects
+# Sonny's  Coding Projects
 
 **Personal coding projects to help me learn and improve**
+
 
 ## Goals
 
@@ -11,7 +12,7 @@
 This repo is a collection of small projects that I’m using to sharpen my programming skills. 
 
 
-## 🛠 Tech Stack
+## Tech Stack
 
 Depending on the project, I might use:
 - Python / Java / C / JavaScript / etc.
@@ -22,7 +23,7 @@ Depending on the project, I might use:
 
 This is a work in progress — things may be messy, and that’s part of the learning.
 
-## 📌 Notes to Self
+##  Notes to Self
 
 - Don’t be afraid to start small
 - Commit often
