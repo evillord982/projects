@@ -1,7 +1,7 @@
 const duelists = ["Jett", "Iso", "Reyna", "Yoru", "Raze", "Neon", "Pheonix", "Waylay"];
 const initiator = ["Sova", "Breach", "KAYO", "Skye", "Fade", "Tejo", "Gekko"];
 const smokes = ["Clove", "Omen", "Astra", "Brimstone", "Viper", "Harbour"];
-const sentinel = ["Cypher", "Chamber", "Sage", "Killjoy", "Vyse"];
+const sentinel = ["Cypher", "Chamber", "Sage", "Killjoy", "Vyse", "Veto"];
 
 //combine arrays
 //spread operator to combine all the agents

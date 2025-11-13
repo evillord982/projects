@@ -29,9 +29,8 @@ public class Main {
         }
 
         introduceSiblings(siblings);
-        duke.introduce();
-        luna.introduce();
-            
+        duke.introducePet();
+        luna.introducePet();   
     }
 
     private static void introduceSiblings(List<Sibling> siblings) {
@@ -48,7 +47,5 @@ public class Main {
         }
     }
     return oldest;
-}
-
-  
+    }
 }

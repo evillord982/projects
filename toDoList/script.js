@@ -1,32 +1,61 @@
 const addButton = document.getElementById('addTask');
 const taskInput = document.getElementById('taskInput');
 const taskList = document.getElementById('taskList');
+const prioritySelect = document.getElementById('prioritySelect'); // FIXED
 
 loadTasks();
 
 function addTask(){
     
-    const task = taskInput.value.trim();
-    if (task){  //if task input field is empty, add task, then clear the input field after pressed the add task button
+    const taskText = taskInput.value.trim();
+    const priority = prioritySelect.value; // FIXED - removed ()
+
+    if (taskText){
+        const task = {
+            id: Date.now(),
+            text: taskText,
+            priority: priority,
+            completed: false
+        };
+
         createTaskElement(task);
         taskInput.value = '';
         saveTasks();
     } else {
-        alert("Invalid input, try again!")
+        alert("Invalid input.")
     }
 }
 
-addButton.addEventListener('click', addTask);   //click the add task button to peform add task function
+addButton.addEventListener('click', addTask);  
 taskInput.addEventListener('keydown', function(event) {
     if(event.key === 'Enter') {
         addTask();
-        }
-    });
+    }
+});
 
 function createTaskElement(task){
 
     const listItem = document.createElement('li');
-    listItem.textContent = task;
+    listItem.dataset.id = task.id; // FIXED - added this line
+    listItem.classList.add(`priority-${task.priority}`);
+
+    const taskInfo = document.createElement('div');
+    taskInfo.className = 'task-info';
+
+    const taskText = document.createElement('span');
+    taskText.className = 'task-text';
+    taskText.textContent = task.text;
+
+    const taskMeta = document.createElement('span');
+    taskMeta.className = 'task-meta';
+    taskMeta.textContent = `[${task.priority.toUpperCase()}]`;
+
+    taskInfo.appendChild(taskText);
+    taskInfo.appendChild(taskMeta);
+
+    //buttons
+    const buttonContainer = document.createElement('div');
+    buttonContainer.className = 'task-actions';
 
     const deleteButton = document.createElement('button');
     deleteButton.textContent = 'Remove';
@@ -36,15 +65,18 @@ function createTaskElement(task){
     editButton.textContent = 'Edit';
     editButton.className = 'editTask';
 
-    listItem.appendChild(deleteButton);
-    listItem.appendChild(editButton);
+    buttonContainer.appendChild(editButton); // FIXED - append to buttonContainer
+    buttonContainer.appendChild(deleteButton); // FIXED - append to buttonContainer
+    
+    listItem.appendChild(taskInfo); // FIXED - append taskInfo first
+    listItem.appendChild(buttonContainer); // FIXED - append buttonContainer
     taskList.appendChild(listItem);
 
     
     deleteButton.addEventListener('click', function(){
         taskList.removeChild(listItem);
         saveTasks();
-    })
+    });
 
     editButton.addEventListener('click', function() {
         editTask(listItem, task);
@@ -55,9 +87,19 @@ function createTaskElement(task){
 function saveTasks() {
     let tasks = [];
     taskList.querySelectorAll('li').forEach(item => {
-        // Get only the text node, not the buttons
-        const taskText = item.childNodes[0].textContent.trim();
-        tasks.push(taskText);
+        
+        const id = item.dataset.id;
+        const text = item.querySelector('.task-text').textContent;
+        const meta = item.querySelector('.task-meta').textContent;
+
+        const priorityMatch = meta.match(/\[(.*?)\]/);
+        
+        tasks.push({
+            id: id,
+            text: text,
+            priority: priorityMatch ? priorityMatch[1].toLowerCase() : 'medium',
+            completed: false
+        });
     });
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
@@ -75,70 +117,96 @@ clearButton.addEventListener('click', function() {
     localStorage.removeItem('tasks');
 });
 
-//edit task button
+// REMOVED the duplicate editButton event listener that was here
 
-editButton.addEventListener('click', function() {
-        editTask(listItem, task);
-    });
-
+function editTask(listItem, task) {
     
+    const taskInfo = listItem.querySelector('.task-info');
+    const oldText = task.text;
 
-
-function editTask(listItem, oldTaskText) {
-    // Remove existing text
-    listItem.textContent = '';
+    // Clear task info
+    taskInfo.innerHTML = '';
 
     // Create input to edit
     const input = document.createElement('input');
     input.type = 'text';
-    input.value = oldTaskText;
+    input.value = oldText; // FIXED - was oldTaskText
     input.className = 'editInput';
-    listItem.appendChild(input);
+    taskInfo.appendChild(input); // FIXED - was listItem
     input.focus();
+
+    // Priority dropdown
+    const priorityEdit = document.createElement('select');
+    priorityEdit.innerHTML = `
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+    `;
+    priorityEdit.value = task.priority;
+    taskInfo.appendChild(priorityEdit);
 
     // Save button
     const saveButton = document.createElement('button');
     saveButton.textContent = 'Save';
     saveButton.className = 'saveEdit';
-    listItem.appendChild(saveButton);
+    taskInfo.appendChild(saveButton); // FIXED - was listItem
 
-    // Cancel button (optional)
+    // Cancel button
     const cancelButton = document.createElement('button');
     cancelButton.textContent = 'Cancel';
     cancelButton.className = 'cancelEdit';
-    listItem.appendChild(cancelButton);
+    taskInfo.appendChild(cancelButton); // FIXED - was listItem
 
     // Function to handle saving
     const saveEdit = function() {
         const newText = input.value.trim();
         if (newText) {
-            listItem.innerHTML = '';
-            createTaskElement(newText);
-            taskList.removeChild(listItem); // Remove original, replaced in new element
+            task.text = newText;
+            task.priority = priorityEdit.value;
+            
+            // Recreate the task display
+            taskInfo.innerHTML = '';
+            
+            const taskText = document.createElement('span');
+            taskText.className = 'task-text';
+            taskText.textContent = task.text;
+            
+            const taskMeta = document.createElement('span');
+            taskMeta.className = 'task-meta';
+            taskMeta.textContent = `[${task.priority.toUpperCase()}]`;
+            
+            taskInfo.appendChild(taskText);
+            taskInfo.appendChild(taskMeta);
+            
+            // Update priority class
+            listItem.className = '';
+            listItem.classList.add(`priority-${task.priority}`);
+            
             saveTasks();
         } else {
             alert("Task cannot be empty.");
         }
     };
 
-    // Save action on button click
     saveButton.addEventListener('click', saveEdit);
-
-    // Save action on Enter key press
     input.addEventListener('keypress', function(e) {
         if (e.key === 'Enter') {
             saveEdit();
         }
     });
 
-    // Cancel acti
     cancelButton.addEventListener('click', function() {
-        listItem.innerHTML = '';
-        createTaskElement(oldTaskText);
-        taskList.removeChild(listItem);
+        taskInfo.innerHTML = '';
+        
+        const taskText = document.createElement('span');
+        taskText.className = 'task-text';
+        taskText.textContent = task.text;
+        
+        const taskMeta = document.createElement('span');
+        taskMeta.className = 'task-meta';
+        taskMeta.textContent = `[${task.priority.toUpperCase()}]`;
+        
+        taskInfo.appendChild(taskText);
+        taskInfo.appendChild(taskMeta);
     });
 }
-
-
-
-

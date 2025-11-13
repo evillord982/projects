@@ -29,16 +29,43 @@ body {
     border-radius: 5px;
 }
 
+/* Priority color indicators */
+.priority-high {
+    border-left: 4px solid #dc3545;
+}
+
+.priority-medium {
+    border-left: 4px solid #ffc107;
+}
+
+.priority-low {
+    border-left: 4px solid #28a745;
+}
+
+/* Task info styling */
+.task-info {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    text-align: left;
+}
+
 .task-text {
     flex-grow: 1;
     text-align: left;
     margin-right: 10px;
 }
 
+.task-meta {
+    font-size: 0.85em;
+    color: #666;
+    margin-top: 4px;
+}
+
 .task-actions {
     display: flex;
     gap: 10px;
-    margin-left: auto; /* This pushes the buttons to the far right */
+    margin-left: auto; 
 }
 
 .deleteTask, .editTask {
@@ -50,39 +77,12 @@ body {
     cursor: pointer;
 }
 
-.input-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    max-width: 500px;
-    margin: 0 auto 20px;
+.deleteTask:hover, .editTask:hover {
+    background-color: #5a6268;
 }
 
-label {
-    margin-bottom: 10px;
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-    text-align: center;
+/* Edit mode styling */
+.editInput {
     width: 100%;
+    padding: 5px;
 }
-
-#taskInput {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 16px;
-}
-
-#addTask, #clearList {
-    background-color: #6c757d;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 0 5px;
-}   

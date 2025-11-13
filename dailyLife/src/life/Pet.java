@@ -15,8 +15,7 @@ public class Pet {
         public String myType() { return type; }
         public String myColour() { return colour; }
 
-
-        public void introduce() {
+        public void introducePet() {
             System.out.println("My name is " + this.name + " and I am a " + this.type +"." + " I have " + this.colour + " fur.");
-    }
+        }
 }
