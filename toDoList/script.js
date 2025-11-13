@@ -1,14 +1,14 @@
 const addButton = document.getElementById('addTask');
 const taskInput = document.getElementById('taskInput');
 const taskList = document.getElementById('taskList');
-const prioritySelect = document.getElementById('prioritySelect'); // FIXED
+const prioritySelect = document.getElementById('prioritySelect');
 
 loadTasks();
 
 function addTask(){
     
     const taskText = taskInput.value.trim();
-    const priority = prioritySelect.value; // FIXED - removed ()
+    const priority = prioritySelect.value;
 
     if (taskText){
         const task = {
@@ -36,7 +36,7 @@ taskInput.addEventListener('keydown', function(event) {
 function createTaskElement(task){
 
     const listItem = document.createElement('li');
-    listItem.dataset.id = task.id; // FIXED - added this line
+    listItem.dataset.id = task.id;
     listItem.classList.add(`priority-${task.priority}`);
 
     const taskInfo = document.createElement('div');
@@ -65,11 +65,11 @@ function createTaskElement(task){
     editButton.textContent = 'Edit';
     editButton.className = 'editTask';
 
-    buttonContainer.appendChild(editButton); // FIXED - append to buttonContainer
-    buttonContainer.appendChild(deleteButton); // FIXED - append to buttonContainer
+    buttonContainer.appendChild(editButton); 
+    buttonContainer.appendChild(deleteButton); 
     
-    listItem.appendChild(taskInfo); // FIXED - append taskInfo first
-    listItem.appendChild(buttonContainer); // FIXED - append buttonContainer
+    listItem.appendChild(taskInfo); 
+    listItem.appendChild(buttonContainer); 
     taskList.appendChild(listItem);
 
     
@@ -117,7 +117,6 @@ clearButton.addEventListener('click', function() {
     localStorage.removeItem('tasks');
 });
 
-// REMOVED the duplicate editButton event listener that was here
 
 function editTask(listItem, task) {
     
@@ -130,9 +129,8 @@ function editTask(listItem, task) {
     // Create input to edit
     const input = document.createElement('input');
     input.type = 'text';
-    input.value = oldText; // FIXED - was oldTaskText
     input.className = 'editInput';
-    taskInfo.appendChild(input); // FIXED - was listItem
+    taskInfo.appendChild(input);
     input.focus();
 
     // Priority dropdown
@@ -149,13 +147,13 @@ function editTask(listItem, task) {
     const saveButton = document.createElement('button');
     saveButton.textContent = 'Save';
     saveButton.className = 'saveEdit';
-    taskInfo.appendChild(saveButton); // FIXED - was listItem
+    taskInfo.appendChild(saveButton); 
 
     // Cancel button
     const cancelButton = document.createElement('button');
     cancelButton.textContent = 'Cancel';
     cancelButton.className = 'cancelEdit';
-    taskInfo.appendChild(cancelButton); // FIXED - was listItem
+    taskInfo.appendChild(cancelButton); 
 
     // Function to handle saving
     const saveEdit = function() {
