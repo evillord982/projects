@@ -5,30 +5,24 @@
 
 ## Goals
 
-- Get better at coding
+- Get better at coding, and enjoy the process
 
 ## About
 
-This repo is a collection of small projects that I’m using to sharpen my programming skills. 
+This repo is a collection of small projects that I’m using to sharpen my  skills. 
 
 
 ## Tech Stack
 
 Depending on the project, I might use:
-- Python / Java / C / JavaScript / etc.
+- HTML, CSS, Javascript, Next, React
 - Git for version control
-- Whatever tools I’m trying to learn!
+- Gonna learn python
 
-## In Progress
 
-This is a work in progress — things may be messy, and that’s part of the learning.
 
 ##  Notes to Self
 
 - Don’t be afraid to start small
 - Commit often
-- Comment your code (future me will thank you)
-- Celebrate small wins!
-- get better at version control and git
-
 ---
