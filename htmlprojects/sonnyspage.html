@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+
+<html lang="en"> 
+<head>
+<title>Sonny Website</title>
+
+<meta charset="UTF-8">
+<meta name="description" content="Sonny HTML Project">
+<meta name="keywords" content="portfolio, project, fun">
+<meta name="author" content="Sonny">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<style>
+    body {
+        color: black;
+        background-color: white;
+    }
+    a {
+        display: block;
+    }
+    header {
+        background-color: #ece5e5f5;
+        color: black;
+        padding: 20px;
+    }
+    .container {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+    .section {
+        flex: 1;
+        min-width: 300px;
+        
+    }
+    #hero {
+        text-align: center;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding:100px 20px;
+        margin: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    #hero h1 {
+        font-size: 50px;
+        margin: 0;
+        font-weight: bold;
+    }
+    
+    #hero h2 {
+        font-size: 25px;
+        margin: 10px 0 0 0;
+        font-weight: 300;
+    }
+    #about .section {
+        text-align: left;
+    }
+
+    nav {
+        display: flex;
+        gap: 30px;
+    }
+
+    nav a {
+        color: black;
+        text-decoration: none;
+        display: inline;
+        font-weight: 300;
+        transition: color 0.3s;
+    }
+
+    nav a:hover {
+        color: #667eea;
+    }
+
+    ul {
+        display: inline-block;
+    }
+    
+    footer {
+        background-color: #ece5e5f5;
+        color: black;
+        text-align: center;
+        padding: px;
+    }
+    
+    .cta-button {
+        background-color: #ff0000;
+        color: white;
+        border: none;
+        padding: 15px 40px;
+        font-size: 18px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 20px;
+        transition: background-color 0.3s;
+    }
+
+    .cta-button:hover {
+        background-color: #cc0000;
+    }
+
+
+
+</style>
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href ="#about">About</a>
+            <a href ="#projects">Projects</a>
+            <a href ="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section id="hero">
+    <h1>Sonny's Website</h1>
+    <h2>Hello and welcome to my website.</h2>
+    <button class="cta-button">Explore My Work</button>
+</section>
+    
+
+
+<section id ="about">
+    <div class="container">
+        <div class="section">
+            <h3>About me</h3>
+            <p>Hi, my name is Sonny, I am a student at Macquarie University, currently studying to be a software engineer.</p>
+            <p>When I'm not deep in coursework or coding, I'm gaming on the Summoners Rift, watching anime, or fueling up with Monster Zero Ultra and hitting new bench press PRs.</p>
+            <p>Currently learning JavaScript, HTML, CSS, Python, React, Next.js</p>
+            <h3>List of things I like</h3>
+            <ul>
+                <li>Uber eats</li>
+                <li>League of Legends</li>
+                <li>Monster Zero Ultra</li>
+            </ul>
+
+            <h3>Personal Projects</h3>
+            <p>Automated drawbridge control system with ESP32</p>
+            <p>Valorant Agent randomiser</p>
+            <p>Personal To-do list App</p>
+        </div>                   
+    </div>
+</section>
+
+
+
+<section id="contact">
+    <h3>Socials</h3>
+    <p>Email: <a href="mailto:sonnysayaloune@gmail.com">sonnysayaloune@gmail.com</a></p>
+    <p>Discord: sonnyackerman#9122</p>
+    <p>Instagram: <a href="https://instagram.com/sonnysaya_">@sonnysaya_</a></p>
+</section>
+
+<a href="https://www.ubereats.com/au/feed?diningMode=DELIVERY&mod=pendingRating&pl=JTdCJTIyYWRkcmVzcyUyMiUzQSUyMjklMjBLZWFybmV5JTIwUGxhY2UlMjIlMkMlMjJyZWZlcmVuY2UlMjIlM0ElMjJhZjBmNTg1Ny1kYzE5LTMyN2YtYWUzOS0yYzBlM2QzMzIxY2MlMjIlMkMlMjJyZWZlcmVuY2VUeXBlJTIyJTNBJTIydWJlcl9wbGFjZXMlMjIlMkMlMjJsYXRpdHVkZSUyMiUzQS0zMy44OTYxMjMzJTJDJTIybG9uZ2l0dWRlJTIyJTNBMTUwLjg4MjAxJTdE&ps=1">
+    <img src="images/kassemm.JPG" height="300" width="300" alt="This is a picture of kassem" title="I am Sonny's uber eats driver.">
+</a>
+<video controls autoplay muted loop width="300" src="IMG_1087.mp4" title="Pro Vietnamese TFT player"></video>
+
+
+
+</body>
+<footer>
+    <p>&copy; 2025 Sonny. All rights reserved.</p>
+</footer>
+</html>
