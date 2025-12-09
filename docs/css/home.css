@@ -1,5 +1,5 @@
 /* ---------------------------------------
-   1. GLOBAL STYLES
+   GLOBAL STYLES
 ---------------------------------------- */
 html {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
@@ -18,7 +18,7 @@ h1, h2 {
 }
 
 /* ---------------------------------------
-   2. LAYOUT: HEADER, NAV, MAIN, FOOTER
+   LAYOUT: HEADER, NAV, MAIN, FOOTER
 ---------------------------------------- */
 header {
     grid-row: 1 / 2;
@@ -47,7 +47,7 @@ footer {
 }
 
 /* ---------------------------------------
-   3. SIDEBAR
+   SIDEBAR
 ---------------------------------------- */
 .sidebar {
     background-color: #1a1a1a;
@@ -110,7 +110,7 @@ footer {
 }
 
 /* ---------------------------------------
-   4. MAIN CONTENT
+   MAIN CONTENT
 ---------------------------------------- */
 main h2 {
     color: white;
@@ -144,7 +144,7 @@ main li::before {
 }
 
 /* ---------------------------------------
-   5. CONTACTS SECTION
+   CONTACTS SECTION
 ---------------------------------------- */
 section.contacts {
     border: 2px solid black;
@@ -175,7 +175,7 @@ section.contacts a:hover {
 }
 
 /* ---------------------------------------
-   6. VIDEO (VINH SECTION)
+   VIDEO (VINH SECTION)
 ---------------------------------------- */
 section.vinh {
     border: 2px solid black;
@@ -194,7 +194,7 @@ section.vinh video {
 }
 
 /* ---------------------------------------
-   7. GRID CONTAINER
+   GRID CONTAINER
 ---------------------------------------- */
 .container {
     max-width: 1000px;
