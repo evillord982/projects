@@ -47,8 +47,9 @@ main label {
 }
 
 main input[type="text"],
+
 main select {
-    width: 100%;
+    max-width: 400px;
     padding: 10px;
     background-color: #1a1a1a;
     border: 1px solid #333;
@@ -56,6 +57,12 @@ main select {
     border-radius: 5px;
     font-size: 14px;
     margin-bottom: 10px;
+}
+
+/* Shorten the task input box */
+#taskInput {
+    max-width: 400px;
+    width: 70%;
 }
 
 main input[type="text"]:focus,
