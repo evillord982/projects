@@ -5,6 +5,41 @@ const prioritySelect = document.getElementById('prioritySelect');
 
 loadTasks();
 
+// Priority order: lower number = higher priority
+function getPriorityOrder(priority) {
+    const order = { 'high': 0, 'medium': 1, 'low': 2 };
+    return order[priority] || 1;
+}
+
+// Sort and re-render all tasks by priority
+function sortAndRenderTasks() {
+    // Get all tasks from DOM
+    let tasks = [];
+    taskList.querySelectorAll('li').forEach(item => {
+        const id = item.dataset.id;
+        const priority = item.dataset.priority; // Read directly from dataset
+        const text = item.querySelector('.task-text').textContent;
+        
+        tasks.push({
+            id: id,
+            text: text,
+            priority: priority,
+            completed: false
+        });
+    });
+    
+    // Sort by priority (high first)
+    tasks.sort((a, b) => getPriorityOrder(a.priority) - getPriorityOrder(b.priority));
+    
+    // Clear the list
+    taskList.innerHTML = '';
+    
+    // Re-render all tasks in sorted order
+    tasks.forEach(task => {
+        createTaskElement(task);
+    });
+}
+
 function addTask(){
     
     const taskText = taskInput.value.trim();
@@ -20,6 +55,7 @@ function addTask(){
 
         createTaskElement(task);
         taskInput.value = '';
+        sortAndRenderTasks(); // Sort after adding
         saveTasks();
     } else {
         alert("Invalid input.")
@@ -37,6 +73,7 @@ function createTaskElement(task){
 
     const listItem = document.createElement('li');
     listItem.dataset.id = task.id;
+    listItem.dataset.priority = task.priority; // Store priority in dataset
     listItem.classList.add(`priority-${task.priority}`);
 
     const taskInfo = document.createElement('div');
@@ -90,14 +127,12 @@ function saveTasks() {
         
         const id = item.dataset.id;
         const text = item.querySelector('.task-text').textContent;
-        const meta = item.querySelector('.task-meta').textContent;
-
-        const priorityMatch = meta.match(/\[(.*?)\]/);
+        const priority = item.dataset.priority; // Read directly from dataset
         
         tasks.push({
             id: id,
             text: text,
-            priority: priorityMatch ? priorityMatch[1].toLowerCase() : 'medium',
+            priority: priority,
             completed: false
         });
     });
@@ -106,6 +141,8 @@ function saveTasks() {
 
 function loadTasks() {
     const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    // Sort tasks by priority before displaying
+    tasks.sort((a, b) => getPriorityOrder(a.priority) - getPriorityOrder(b.priority));
     tasks.forEach(createTaskElement);
 }
 
@@ -176,11 +213,15 @@ function editTask(listItem, task) {
             taskInfo.appendChild(taskText);
             taskInfo.appendChild(taskMeta);
             
+            // Update priority in dataset
+            listItem.dataset.priority = task.priority;
+            
             // Update priority class
             listItem.className = '';
             listItem.classList.add(`priority-${task.priority}`);
             
             saveTasks();
+            sortAndRenderTasks(); // Sort after editing
         } else {
             alert("Task cannot be empty.");
         }

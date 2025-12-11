@@ -24,7 +24,7 @@
         <nav class="sidebar-nav">
             <h3>Quick Links</h3>
             <a href="index.html">Home</a>
-            <a href="prac.html">Project One</a>
+            <a href="prac.html">My To-Do List</a>
         </nav>
 
         <div class="sidebar-social">
@@ -38,13 +38,30 @@
 
         <div class="container">
             <header>
-                <h1>PROJECT ONE</h1>
+                <h1>To-Do List</h1>
             </header>
-
             <main>
-                <h2>Main</h2>
-                <p> Lorem</p>
+            <div class="task-form"></div>
+            <label for="taskInput">What needs to be done today Sonny?</label>
+            <input type="text" id ="taskInput" placeholder="Add task">
+            <label for="prioritySelect">Priority: </label>
+            <select id="prioritySelect">>
+                <option value="low">Low</option>
+                <option value="medium" selected>Medium</option>
+                <option value="high">High</option>
+            </select>
+                <div class="button-group">
+                    <button id="addTask">Add</button>
+                    <button id="clearList">Clear</button>
+                    </div>
+                    <ul id="taskList">
+                        <!-- li Element-->
+                    </ul>
             </main>
+            
+            
+
+
 
             <section class="kassem">
                 <a href="https://www.ubereats.com/au/" target="_blank">
@@ -58,7 +75,7 @@
 
         
 
-
+        <script src="script/script.js"></script>
     </body>
 
 </html>
