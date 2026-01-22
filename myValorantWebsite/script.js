@@ -26,7 +26,6 @@ sentinelButton.addEventListener('click', () => selectedRole = 'sentinel');
 
 function randomAgent(){
     let selectedList;
-
     switch (selectedRole){
         case "duelist":
             selectedList = duelists;
